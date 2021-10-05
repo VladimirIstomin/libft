@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 20:41:34 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/04 21:47:12 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/05 19:17:51 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 
 	i = 0;
-	while (src[i] && i < dstsize - 1)
+	while (src[i] && i + 1 < dstsize)
 	{
 		dst[i] = src[i];
 		i++;

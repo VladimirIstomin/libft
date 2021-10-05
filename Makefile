@@ -37,6 +37,8 @@ OBJS	= ${SRCS:.c=.o}
 
 NAME	= libft
 
+LIBNAME	= libft.a
+
 CC		= gcc
 
 FLAGS	= -Wall -Werror -Wextra
@@ -47,7 +49,8 @@ RM		= rm -f
 			${CC} ${FLAGS} -c $< -o ${<:.c=.o} -I ./
 
 ${NAME}:	${OBJS}
-			ar rc ${NAME}.a ${OBJS}
+			ar rc ${LIBNAME} ${OBJS}
+			ranlib ${LIBNAME}
 
 all:		${NAME}
 
@@ -59,7 +62,7 @@ clean:
 			${RM} ${OBJS}
 
 fclean:		clean
-			${RM} ${NAME}
+			${RM} ${LIBNAME}
 
 re:			fclean all
 
