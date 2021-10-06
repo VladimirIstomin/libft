@@ -1,4 +1,4 @@
-SRCS	= 	ft_isalpha.c\
+SRCS_STD	= ft_isalpha.c\
 			ft_isdigit.c\
 			ft_isalnum.c\
 			ft_isascii.c\
@@ -33,23 +33,43 @@ SRCS	= 	ft_isalpha.c\
 			ft_putendl_fd.c\
 			ft_putnbr_fd.c
 
-OBJS	= ${SRCS:.c=.o}
+SRCS_EXTRA	= ft_lstnew_bonus.c\
+			ft_lstadd_front_bonus.c\
+			ft_lstsize_bonus.c\
+			ft_lstlast_bonus.c\
+			ft_lstadd_back_bonus.c\
+			ft_lstdelone_bonus.c\
+			ft_lstclear_bonus.c\
+			ft_lstiter_bonus.c\
+			ft_lstmap_bonus.c
 
-NAME	= libft
+OBJS_STD	= ${SRCS_STD:.c=.o}
 
-LIBNAME	= libft.a
+OBJS_EXTRA	= ${SRCS_EXTRA:.c=.o}
 
-CC		= gcc
+NAME		= libft
 
-FLAGS	= -Wall -Werror -Wextra
+EXTRA		= bonus
 
-RM		= rm -f
+LIBNAME		= libft.a
+
+LIBC		= ar rc
+
+CC			= gcc
+
+FLAGS		= -Wall -Werror -Wextra
+
+RM			= rm -f
 
 .c.o:
 			${CC} ${FLAGS} -c $< -o ${<:.c=.o} -I ./
 
-${NAME}:	${OBJS}
-			ar rc ${LIBNAME} ${OBJS}
+${NAME}:	${OBJS_STD}
+			${LIBC} ${LIBNAME} ${OBJS}
+			ranlib ${LIBNAME}
+
+${EXTRA}:	${OBJS_STD} ${OBSJ_EXTRA}
+			${LIBC} ${LIBNAME} ${OBJS_STD} ${OBJS_EXTRA}
 			ranlib ${LIBNAME}
 
 all:		${NAME}
@@ -59,7 +79,7 @@ norme:
 			norminette -R CheckDefine *.h
 
 clean:
-			${RM} ${OBJS}
+			${RM} ${OBJS_STD} ${OBJS_EXTRA}
 
 fclean:		clean
 			${RM} ${LIBNAME}
