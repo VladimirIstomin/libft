@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:36:55 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/04 20:12:47 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:25:10 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	lenS2;
 	size_t	i;
 	size_t	j;
-	char		*join;
-	
+	char	*join;
+
 	i = 0;
 	j = 0;
 	lenS1 = ft_strlen(s1);
@@ -37,5 +37,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		join[i + j] = s2[j];
 		j++;
 	}
+	join[i + j] = '\0';
 	return (join);
 }

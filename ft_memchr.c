@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 22:23:07 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/05 11:20:29 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/06 12:07:11 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memchr(void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (((char *)s)[i] == (unsigned char)c)
+		if (((char *)s)[i] == (char)c)
 			return (s + i);
 		i++;
 	}

@@ -6,13 +6,13 @@
 /*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:37:22 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/04 20:14:15 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:24:43 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	count_words(char const *s, char c)
+static size_t	count_words(char const *s, char c)
 {
 	size_t	count;
 	size_t	i;
@@ -21,14 +21,16 @@ size_t	count_words(char const *s, char c)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (i == 0 && s[i] != c)
+			count++;
+		else if (i != 0 && s[i - 1] == c && s[i] != c)
 			count++;
 		i++;
 	}
-	return (count + 1);
+	return (count);
 }
 
-size_t	get_word_length(char const *s, size_t start, char c)
+static size_t	get_word_length(char const *s, size_t start, char c)
 {
 	size_t	i;
 
@@ -42,10 +44,31 @@ size_t	get_word_length(char const *s, size_t start, char c)
 	return (i);
 }
 
+static char	**free_array_of_chars(char **array, size_t end)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < end)
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+	return (NULL);
+}
+
+static size_t	get_next_word_index(char const *s, size_t start, char c)
+{
+	while (s[start] == c)
+		start++;
+	return (start);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	n_words;
-	char		**strs;
+	char	**strs;
 	size_t	i;
 	size_t	j;
 	size_t	len;
@@ -58,9 +81,12 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (i < n_words)
 	{
+		j = get_next_word_index(s, j, c);
 		len = get_word_length(s, j, c);
-		strs[i] = ft_substr(s, j, len);
-		j += len + 1;
+		strs[i] = ft_substr(s + j, 0, len);
+		if (!strs[i])
+			return (free_array_of_chars(strs, i));
+		j += len;
 		i++;
 	}
 	strs[i] = NULL;

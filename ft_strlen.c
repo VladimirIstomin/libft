@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:52:43 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/04 20:13:56 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:25:26 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ size_t	ft_strlen(const char *s)
 	i = 0;
 	while (s[i])
 		i++;
-	return (i);	
+	return (i);
 }

@@ -6,13 +6,13 @@
 /*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:37:38 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/04 20:14:59 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:23:35 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-short int	get_num_len(int n)
+static short int	get_num_len(int n)
 {
 	short int	num_len;
 
@@ -41,8 +41,8 @@ unsigned int	ft_abs(int n)
 char	*ft_itoa(int n)
 {
 	short int	num_len;
-	char			*str;
-	short	int	i;
+	char		*str;
+	short int	i;
 
 	num_len = get_num_len(n);
 	str = malloc(sizeof(char) * (num_len + 1));
@@ -56,7 +56,7 @@ char	*ft_itoa(int n)
 		str[0] = '0';
 	while (n != 0)
 	{
-		str[i] = ft_abs(n % 10);
+		str[i] = ft_abs(n % 10) + '0';
 		n /= 10;
 		i--;
 	}

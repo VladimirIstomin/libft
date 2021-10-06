@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:37:45 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/04 21:11:30 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:27:13 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	char					*ptr;
+	char			*ptr;
 	unsigned long	i;
 
 	i = 0;
