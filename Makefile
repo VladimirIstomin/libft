@@ -65,10 +65,10 @@ RM			= rm -f
 			${CC} ${FLAGS} -c $< -o ${<:.c=.o} -I ./
 
 ${NAME}:	${OBJS_STD}
-			${LIBC} ${LIBNAME} ${OBJS}
+			${LIBC} ${LIBNAME} ${OBJS_STD}
 			ranlib ${LIBNAME}
 
-${EXTRA}:	${OBJS_STD} ${OBSJ_EXTRA}
+${EXTRA}:	${OBJS_STD} ${OBJS_EXTRA}
 			${LIBC} ${LIBNAME} ${OBJS_STD} ${OBJS_EXTRA}
 			ranlib ${LIBNAME}
 
@@ -86,4 +86,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re ar
+.PHONY:		all norme clean fclean re ar
