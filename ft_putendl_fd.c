@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:37:30 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/04 20:43:45 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/07 17:56:51 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	write(fd, s, ft_strlen(s));
 	write(fd, "\n", 1);
 }

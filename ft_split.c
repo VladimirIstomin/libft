@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:37:22 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/06 17:24:43 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/07 17:54:29 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,19 +67,19 @@ static size_t	get_next_word_index(char const *s, size_t start, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	n_words;
 	char	**strs;
 	size_t	i;
 	size_t	j;
 	size_t	len;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	j = 0;
-	n_words = count_words(s, c);
-	strs = malloc(sizeof(char *) * (n_words + 1));
+	strs = malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!strs)
 		return (NULL);
-	while (i < n_words)
+	while (i < count_words(s, c))
 	{
 		j = get_next_word_index(s, j, c);
 		len = get_word_length(s, j, c);

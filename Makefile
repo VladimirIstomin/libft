@@ -49,6 +49,8 @@ OBJS_EXTRA	= ${SRCS_EXTRA:.c=.o}
 
 NAME		= libft
 
+HEADER		= libft.h
+
 EXTRA		= bonus
 
 LIBNAME		= libft.a
@@ -64,11 +66,11 @@ RM			= rm -f
 .c.o:
 			${CC} ${FLAGS} -c $< -o ${<:.c=.o} -I ./
 
-${NAME}:	${OBJS_STD}
+${NAME}:	${OBJS_STD} ${HEADER}
 			${LIBC} ${LIBNAME} ${OBJS_STD}
 			ranlib ${LIBNAME}
 
-${EXTRA}:	${OBJS_STD} ${OBJS_EXTRA}
+${EXTRA}:	${OBJS_STD} ${OBJS_EXTRA} ${HEADER}
 			${LIBC} ${LIBNAME} ${OBJS_STD} ${OBJS_EXTRA}
 			ranlib ${LIBNAME}
 
@@ -86,4 +88,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all norme clean fclean re ar
+.PHONY:		all norme clean fclean re
