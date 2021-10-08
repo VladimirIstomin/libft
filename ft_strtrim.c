@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:37:01 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/08 16:03:44 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/08 17:00:03 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = get_start(s1, set);
 	end = get_end(s1, set);
 	if (start >= end)
-		end = start;
+		start = end + 1;
 	trimmed = ft_substr(s1, start, end - start + 1);
 	if (!trimmed)
 		return (NULL);
