@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 21:50:09 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/06 17:25:16 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/08 16:40:55 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		dst[dst_len + i] = src[i];
 		i++;
 	}
-	dst[dst_len + i] = '\0';
-	if (dstsize > dst_len)
+	if (dst_len <= dstsize)
+		dst[dst_len + i] = '\0';
+	if (dstsize >= dst_len)
 		return (src_len + dst_len);
 	return (src_len + dstsize);
 }

@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:37:01 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/07 16:15:33 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/08 16:03:44 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ static size_t	get_start(char const *s1, char const *set)
 static size_t	get_end(char const *s1, char const *set)
 {
 	size_t	i;
+	size_t	len_s;
 
-	i = ft_strlen(s1) - 1;
+	len_s = ft_strlen(s1);
+	i = len_s - 1;
 	if (!set)
 		return (i);
-	while (i >= 0)
+	while (i >= 0 && i <= len_s)
 	{
 		if (!find_char_in_str(set, s1[i]))
 			return (i);
@@ -69,7 +71,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = get_start(s1, set);
 	end = get_end(s1, set);
 	if (start >= end)
-		end = start + 1;
+		end = start;
 	trimmed = ft_substr(s1, start, end - start + 1);
 	if (!trimmed)
 		return (NULL);
