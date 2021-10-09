@@ -33,7 +33,7 @@ SRCS_STD	= ft_isalpha.c\
 			ft_putendl_fd.c\
 			ft_putnbr_fd.c
 
-SRCS_EXTRA	= ft_lstnew_bonus.c\
+SRCS_BONUS	= ft_lstnew_bonus.c\
 			ft_lstadd_front_bonus.c\
 			ft_lstsize_bonus.c\
 			ft_lstlast_bonus.c\
@@ -45,15 +45,13 @@ SRCS_EXTRA	= ft_lstnew_bonus.c\
 
 OBJS_STD	= ${SRCS_STD:.c=.o}
 
-OBJS_EXTRA	= ${SRCS_EXTRA:.c=.o}
+OBJS_BONUS	= ${SRCS_BONUS:.c=.o}
 
-NAME		= libft
+NAME		= libft.a
 
 HEADER		= libft.h
 
-EXTRA		= bonus
-
-LIBNAME		= libft.a
+BONUS		= bonus
 
 LIBC		= ar rc
 
@@ -63,16 +61,16 @@ FLAGS		= -Wall -Werror -Wextra
 
 RM			= rm -f
 
-.c.o:
-			${CC} ${FLAGS} -c $< -o ${<:.c=.o} -I ./
+.c.o:		
+			${CC} ${FLAGS} -c $< -o $@ -I ./
 
 ${NAME}:	${OBJS_STD} ${HEADER}
-			${LIBC} ${LIBNAME} ${OBJS_STD}
-			ranlib ${LIBNAME}
+			${LIBC} ${NAME} ${OBJS_STD}
+			ranlib ${NAME}
 
-${EXTRA}:	${OBJS_STD} ${OBJS_EXTRA} ${HEADER}
-			${LIBC} ${LIBNAME} ${OBJS_STD} ${OBJS_EXTRA}
-			ranlib ${LIBNAME}
+${BONUS}:	${OBJS_STD} ${OBJS_BONUS} ${HEADER}
+			${LIBC} ${NAME} ${OBJS_STD} ${OBJS_BONUS}
+			ranlib ${NAME}
 
 all:		${NAME}
 
@@ -81,7 +79,7 @@ norme:
 			norminette -R CheckDefine *.h
 
 clean:
-			${RM} ${OBJS_STD} ${OBJS_EXTRA}
+			${RM} ${OBJS_STD} ${OBJS_BONUS}
 
 fclean:		clean
 			${RM} ${LIBNAME}
