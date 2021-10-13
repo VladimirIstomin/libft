@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:36:55 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/07 17:38:19 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/13 16:18:04 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ static	char	*concat(char const *s1, char const *s2, char *join)
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	lenS1;
-	size_t	lenS2;
+	size_t	len_s1;
+	size_t	len_s2;
 	char	*join;
 
 	if (!s1 || !s2)
 		return (NULL);
-	lenS1 = ft_strlen(s1);
-	lenS2 = ft_strlen(s2);
-	join = malloc(sizeof(char) * (lenS1 + lenS2 + 1));
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	join = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
 	if (!join)
 		return (NULL);
 	return (concat(s1, s2, join));
