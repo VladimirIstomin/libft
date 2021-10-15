@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gmerlene <gmerlene@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:52:20 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/07 18:03:44 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/15 09:43:03 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*ft_memmove(void *dst, const char *src, size_t len)
 	else
 	{
 		i = len - 1;
-		while (i >= 0 && i <= len)
+		while (i <= len)
 		{
 			((char *)dst)[i] = src[i];
 			i--;

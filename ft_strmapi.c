@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gmerlene <gmerlene@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:37:12 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/07 17:54:58 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/15 09:44:35 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!strf)
 		return (NULL);
 	strf[i--] = '\0';
-	while (i >= 0 && i <= len)
+	while (i <= len)
 	{
 		strf[i] = f(i, s[i]);
 		i--;

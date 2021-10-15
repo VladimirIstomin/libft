@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmerlene <gmerlene@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gmerlene <gmerlene@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:37:01 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/08 17:00:03 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/15 09:43:46 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static size_t	get_end(char const *s1, char const *set)
 	i = len_s - 1;
 	if (!set)
 		return (i);
-	while (i >= 0 && i <= len_s)
+	while (i <= len_s)
 	{
 		if (!find_char_in_str(set, s1[i]))
 			return (i);

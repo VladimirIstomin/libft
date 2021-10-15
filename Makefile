@@ -46,7 +46,7 @@ ${NAME}:	${OBJS} ${HEADER}
 			ar rcs ${NAME} $?
 
 ${BONUS}:
-			make OBJS='${OBJS} ${OBJS_B}' all
+			@make OBJS='${OBJS} ${OBJS_B}' all
 
 clean:
 			rm -rf ${OBJ_DIR}
