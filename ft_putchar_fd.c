@@ -6,7 +6,7 @@
 /*   By: gmerlene <gmerlene@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 17:37:32 by gmerlene          #+#    #+#             */
-/*   Updated: 2021/10/15 09:49:41 by gmerlene         ###   ########.fr       */
+/*   Updated: 2021/10/15 11:07:48 by gmerlene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putchar_fd(char c, int fd)
 {	
 	int	res;
-	
+
 	res = write(fd, &c, 1);
 	(void)res;
 }
